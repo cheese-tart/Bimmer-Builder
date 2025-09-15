@@ -30,7 +30,15 @@ function AuthProvider({ children }) {
 
     async function handleLogin() {
         try {
-            await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+
+            const token = await user.getIdToken();
+            try {
+                
+            } catch (error) {
+                console.error("Error sending token", error.message)
+            }
         } catch (error) {
             console.error("Login failed:", error.message);
         }

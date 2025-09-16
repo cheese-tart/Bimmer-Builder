@@ -9,6 +9,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    parts: {
+        type: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Part"
+            }
+        ],
+        default: []
+    }
 });
 
 const User = mongoose.model("User", userSchema);

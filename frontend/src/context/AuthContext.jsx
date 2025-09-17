@@ -8,15 +8,17 @@ import {
     signOut,
     onAuthStateChanged
 } from '../auth/firebaseConfig';
+import { createUser } from '../../api/api';
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
+    const [uid, setUid] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, function(currentUser) {
             if (currentUser) {
                 setUser(currentUser);
             } else {
@@ -33,14 +35,20 @@ function AuthProvider({ children }) {
             const result = await signInWithPopup(auth, provider);
             const user = result.user;
 
-            const token = await user.getIdToken();
-            try {
-                
-            } catch (error) {
-                console.error("Error sending token", error.message)
-            }
+            setUser({
+                name: user.displayName,
+                email: user.email,
+            });
+            console.log(user.displayName);
+            console.log(user.email);
+
+            const data = await createUser(user.displayName, user.email);
+            const { _id } = data;
+            setUid(_id);
+            console.log("User id: ", _id);
+            localStorage.setItem("uid", _id);
         } catch (error) {
-            console.error("Login failed:", error.message);
+            console.error("Login failed: ", error.message);
         }
     };
 
@@ -48,8 +56,10 @@ function AuthProvider({ children }) {
         try {
             await signOut(auth);
             setUser(null);
+            setUid(null);
+            localStorage.removeItem("uid");
         } catch (error) {
-            console.error("Logout failed:", error.message);
+            console.error("Logout failed: ", error.message);
         }
     };
 
@@ -59,6 +69,8 @@ function AuthProvider({ children }) {
                 value={{
                     user,
                     setUser,
+                    uid,
+                    setUid,
                     handleLogin,
                     handleLogout,
                 }}

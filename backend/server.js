@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 import connectDB from './mongodb/mongo.js';
 import userRouter from './routes/user.js';
-
+import partRouter from './routes/part.js';
 
 dotenv.config();
 const app = express();
@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/user", userRouter);
+app.use("/api/part", partRouter);
 
 connectDB();
 const PORT = process.env.PORT || 5000;

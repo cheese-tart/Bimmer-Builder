@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
             }
         ],
         default: []
-    }
+    } // List of parts saved by user (add to cart function, etc.)
 });
 
 const User = mongoose.model("User", userSchema);

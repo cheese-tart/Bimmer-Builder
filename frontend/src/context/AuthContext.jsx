@@ -58,6 +58,7 @@ function AuthProvider({ children }) {
             setUser(null);
             setUid(null);
             localStorage.removeItem("uid");
+            console.log("Logout successful");
         } catch (error) {
             console.error("Logout failed: ", error.message);
         }

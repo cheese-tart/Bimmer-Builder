@@ -90,9 +90,9 @@ export async function removePartFromUser(userId, partId) {
 };
 
 // Parts related
-export async function getCompatibleParts(model, generation) {
+export async function getCompatibleParts(model, gen) {
     try {
-        const res = await fetch(`${API_URL}/part`, {
+        const res = await fetch(`${API_URL}/part?model=${model}&gen=${gen}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export async function getCompatibleParts(model, generation) {
             body: JSON.stringify(
                 { 
                     model: model,
-                    gen: generation,
+                    gen: gen,
                 }
             ),
         });

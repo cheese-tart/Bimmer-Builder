@@ -8,5 +8,6 @@ A full-stack web application that allows BMW owners to find aftermarket parts ba
 
 ## Technical Stack
 - **Frontend:** React
-- **Backend:** Node.js with Express.js
+- **Backend:** Node.js with Express
 - **Database:** MongoDB
+- **API:** RESTful endpoints

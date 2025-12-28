@@ -14,7 +14,6 @@ function Footer() {
                 <ul>
                     <li><p>Links</p></li>
                     <li><Link to="/" className="foot-link">About</Link></li>
-                    <li><Link to="/" className="foot-link">Link 1</Link></li>
                 </ul>
             </div>
         </div>
@@ -25,6 +24,6 @@ function Footer() {
             <p>&#169;2025 until the death of combustion engines, Bimmer Builder, LLC. All rights reserved.</p>
         </div>
     </footer>
-};
+}
 
 export default Footer;

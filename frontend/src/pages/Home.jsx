@@ -1,7 +1,7 @@
-import '../css/Home.css';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
-import TuningGuide from '../components/TuningGuide';
-import CrashedBmw from '../images/crashed-bmw.svg';
+import '../css/Home.css';
 
 function Home() {
     return <>
@@ -15,15 +15,16 @@ function Home() {
             </div>
             
             <div className="button">
-                <button>Find Parts Now</button>
-            </div>
-
-            <div className="image">
-                <img src={CrashedBmw}></img>
+                <Button
+                    component={Link}
+                    to="/finder"
+                    variant="contained"
+                >
+                    Find Parts Now
+                </Button>
             </div>
         </section>
-        <TuningGuide />
     </>
-};
+}
 
 export default Home;

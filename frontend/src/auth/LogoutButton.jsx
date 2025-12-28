@@ -1,14 +1,20 @@
 import { useContext } from 'react';
+import Button from '@mui/material/Button';
+
 import { AuthContext } from '../context/AuthContext';
 
 function LogoutButton() {
     const { handleLogout } = useContext(AuthContext);
 
     return (
-        <button onClick={handleLogout} className="logout-button">
+        <Button
+            onClick={handleLogout}
+            className="logout-button"
+            variant="contained"
+        >
             Log out
-        </button>
+        </Button>
     );
-};
+}
 
 export default LogoutButton;

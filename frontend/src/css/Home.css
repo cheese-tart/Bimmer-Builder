@@ -1,6 +1,10 @@
 .home {
     background-color: #4b5c6d;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .home .title {
     text-align: center;

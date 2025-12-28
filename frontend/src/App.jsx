@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
+import PartFinder from './pages/PartFinder';
 import Protected from './components/Protected';
 import { AuthProvider } from './context/AuthContext';
 
@@ -16,12 +17,12 @@ function App() {
           {/* Routes that require user to log in */}
           <Route element={<Protected />}>
             <Route path="/" element={<Home />} />
-
+            <Route path="/finder" element={<PartFinder />} />
           </Route>
         </Routes>
       </AuthProvider>
     </>
   );
-};
+}
 
 export default App;

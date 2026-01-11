@@ -22,7 +22,7 @@ export async function createUser(name, email) {
     } catch (error) {
         console.log(error);
     }
-};
+}
 
 export async function getUserParts(userId) {
     try {
@@ -43,7 +43,7 @@ export async function getUserParts(userId) {
     } catch (error) {
         console.log(error);
     }
-};
+}
 
 export async function addPartToUser(userId, partId) {
     try {
@@ -65,7 +65,7 @@ export async function addPartToUser(userId, partId) {
     } catch (error){
         console.log(error);
     }
-};
+}
 
 export async function removePartFromUser(userId, partId) {
     try {
@@ -87,7 +87,7 @@ export async function removePartFromUser(userId, partId) {
     } catch (error){
         console.log(error);
     }
-};
+}
 
 // Parts related
 export async function getCompatibleParts(model, gen) {
@@ -110,4 +110,4 @@ export async function getCompatibleParts(model, gen) {
     } catch (error) {
         console.log(error);
     }
-};
+}

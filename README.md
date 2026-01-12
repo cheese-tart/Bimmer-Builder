@@ -11,4 +11,4 @@ A full-stack web application that helps BMW owners find compatible automotive pa
 - **Backend:** Node.js with Express
 - **Database:** MongoDB
 - **API:** RESTful endpoints
-- **Docker:** Containerized Frontend and Backend + local MongoDB via Docker Compose
+- **Docker:** Containerized Backend + local MongoDB via Docker Compose
